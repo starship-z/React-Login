@@ -33,7 +33,7 @@ function Login() {
                 <h5>Password: {user.password}</h5>
                 <h5>Status: {user.status ? "True" : "False"}</h5>
             </form>
-            <button onClick={e => handleLogOut()}>Log Out</button>
+            {user.status && <button onClick={e => handleLogOut()}>Log Out</button>}
         </div>
     )
 } 
