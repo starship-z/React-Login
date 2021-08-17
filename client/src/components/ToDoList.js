@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+
 function ToDoList() {
 
     let [toDo, setToDo] = useState([]);
@@ -9,6 +10,12 @@ function ToDoList() {
         setToDo([...toDo, text]);
         setText("");
     }
+    
+    const handleRemove = (index) => {
+        let temp = [...toDo];
+        temp.splice(index, 1);
+        setToDo(temp);
+    }
 
     return (
         <div>
@@ -17,8 +24,15 @@ function ToDoList() {
                 <button type="submit">Enter</button>
             </form>
             <div>
-                <h5>{JSON.stringify(toDo)}</h5>
-            
+                <div className="todo_container">{
+                    toDo.map((x, index) => {
+                        return <div className="todo_element" key={index}>
+                            <p>{index + 1}: {x}</p>
+                            <button onClick={e => handleRemove(index)}>Remove</button>
+                            <button >Edit</button>
+                        </div>
+                    })
+                }</div>
             </div>
         </div>
     )
