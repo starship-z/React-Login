@@ -9,20 +9,6 @@ function ToDoList() {
         setToDo([...toDo, text]);
         setText("");
     }
-//bs comment
-//bs comment
-//bs comment
-//bs comment
-//bs comment
-//bs comment
-//bs comment
-//bs comment
-//bs comment
-//bs comment
-//bs comment
-//bs comment
-//bs comment
-//bs comment
 
     return (
         <div>
