@@ -12,6 +12,7 @@ function ToDoList() {
         setToDo([...toDo, text]);
         setText("");
     }
+    //bs comment
     
     const handleRemove = (index) => {
         let temp = [...toDo];
@@ -37,7 +38,8 @@ function ToDoList() {
             <div>
                 <div className="todo_container">{
                     toDo.map((x, index) => {
-                        return <div className="todo_element" key={index}>
+                        return (
+                        <div className="todo_element" key={index}>
                             <p>{index + 1}: {x}</p>
                             <button onClick={e => handleRemove(index)}>Remove</button>
                             <button onClick={e => setEdit({id: index})}>Edit</button>
@@ -48,6 +50,7 @@ function ToDoList() {
                             </form>
                             }
                         </div>
+                        )
                     })
                 }</div>
             </div>
