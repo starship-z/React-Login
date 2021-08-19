@@ -22,8 +22,6 @@ function App() {
         <Route exact path="/counter" component={Counter}></Route>
         <Route exact path="/todo" component={ToDoList}></Route>
       </Switch>
-
-
     </Router>
 
     </div>

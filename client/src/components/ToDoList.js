@@ -12,8 +12,7 @@ function ToDoList() {
         setToDo([...toDo, text]);
         setText("");
     }
-    //bs comment
-    //bs comment
+    
     const handleRemove = (index) => {
         let temp = [...toDo];
         temp.splice(index, 1);

@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import axios from 'axios'
 
 function Counter() {
     let [count, setCount] = useState(0);
@@ -11,11 +12,31 @@ function Counter() {
         setText("");
     }
 
+    const handleIncrease = async () => {
+        try {
+            let temp = await axios.get("http://localhost:4000/counterIncrease");
+            setCount(temp.data.counter);
+            console.log(temp)
+        } catch(e) {
+            console.log(e);
+        }
+    }
+
+    const handleDecrease = async () => {
+        try {
+            let temp = await axios.get("http://localhost:4000/counterDecrease");
+            setCount(temp.data.counter);
+            console.log(temp)
+        } catch(e) {
+            console.log(e);
+        }
+    }
+    
     return (
         <div>
             <h1>Counter: {count}</h1>
-            <button onClick={e => setCount(count+1)}>increase</button>
-            <button onClick={e => setCount(count-1)}>decrease</button>
+            <button onClick={handleIncrease}>increase</button>
+            <button onClick={handleDecrease}>decrease</button>
             <form onSubmit={handleSubmit}>
                 <input type="text" onChange={e => setText(e.target.value)} value={text}></input>
                 <button type="submit">Enter</button>
