@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import "./ToDoList.css"
 
 function ToDoList() {
 
@@ -29,8 +30,9 @@ function ToDoList() {
     }
     
     return (
-        <div>
-            <form onSubmit={e => handleSubmit(e)}>
+        <div className="container">
+        <h1>To Do List:</h1>
+            <form className="todo_add" onSubmit={e => handleSubmit(e)}>
                 <input type="text" onChange={e => setText(e.target.value)} value={text}></input>
                 <button type="submit">Enter</button>
             </form>
